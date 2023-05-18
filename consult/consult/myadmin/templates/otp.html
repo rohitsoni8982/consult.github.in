@@ -1,0 +1,21 @@
+{% extends 'admin_home.html' %}
+{% block about %}
+<div class="container-fluid bg-secondary px-0">
+    <div class="row g-0">
+        <center>
+            <h1 class="display-5 mb-4">OTP Here!!</h1>
+            <font style="color: green;">{{output}}</font>
+            <div class="col-6">
+            <form method="post" action="/myadmin/otp/">
+                {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class= "form-control" name="cotp"  placeholder="enter your otp">
+                        <div class="col-lg-4"> <br>
+                        <button class="btn btn-success" type="submit">submit</button>
+                        </div>
+                    </form>
+            </div>
+      </div>
+    </div>
+</div><br>
+{% endblock about %}

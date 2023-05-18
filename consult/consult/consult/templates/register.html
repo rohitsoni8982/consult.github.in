@@ -1,0 +1,114 @@
+{% extends 'index.html' %}
+{% block page %}
+<div class="container-fluid bg-dark p-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4 text-white">Register</h1>
+            <a href="">Home</a>
+            <i class="far fa-square text-primary px-2"></i>
+            <a href="">Register</a>
+        </div>
+    </div>
+</div>
+{% endblock page %}
+{% block Contact %}
+<!-- AJEAX not work -->
+<script>
+    function checkEmailAvaibility(emailid)
+{
+ var xhttp = new XMLHttpRequest();
+ xhttp.open("GET","http://localhost:8000/checkEmailAvaibility/?emailid="+emailid,true);
+ xhttp.send();
+
+ xhttp.onreadystatechange=function(){
+  if(xhttp.readyState==4 && xhttp.status==200)
+  {
+    // document.getElementById("result").innerHTML=xhttp.responseText;
+    var ref=document.getElementById("result");
+    if(parseInt(xhttp.responseText))
+    {
+      ref.innerHTML="Email id already exists....";
+      ref.style.color="red";
+    }
+    else
+    {
+      ref.innerHTML="Email id available....";
+      ref.style.color="green";
+    }
+  }   
+ }
+}
+</script>
+<div class="container-fluid bg-secondary px-0">
+    <div class="row g-0">
+        <center>
+            <h1 class="display-5 mb-4">Register Here!!</h1>
+            <font style="color: green;">{{output}}</font>
+            <div class="col-6">
+            <form method="post" action="/register/">
+                {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" name="name"  placeholder="full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" onkeyup="checkEmailAvaibility(this.value)" class="form-control" name="email"  placeholder="enter your email">
+                            <span id="result"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password"  placeholder="enter your password">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="text" class="form-control" name="mobile" placeholder="mobile">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">city</label>
+                            <select name="city" name="city" class="form-control">
+                                <option disabled selected hidden>select city</option>
+                                <option value="indore">indore</option>
+                                <option value="bhopal">bhopal</option>
+                                <option value="ujjain">ujjain</option>
+                                <option value="dhar">dhar</option>
+                                <option value="dewas">dewas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea rows="5" class="form-control" name="address" placeholder="Address" ></textarea>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <label for="male">male</label>
+                            <input type="radio" name="gender" value="male">
+                            <label for="female">female</label>
+                            <input type="radio" name="gender" value="female">
+                        </div><br>
+                        <div class="col-lg-4">
+                        <button class="btn btn-success " type="submit">Submit</button>
+                        <button class="btn btn-dark " type="reset">reset</button>
+                        </div><br>
+                    </form>
+            </div>
+      </div>
+    </div>
+</div>
+{% endblock Contact %}
+{% block carousel %}
+{% endblock carousel %}
+{% block about %}
+{% endblock about %}
+{% block service %}
+{% endblock service %}
+{% block features %}
+{% endblock features %}
+{% block quote %}
+{% endblock quote %}
+{% block team %}
+{% endblock team %}
+{% block testimonial %}
+{% endblock testimonial %}
+{% block blog %}
+{% endblock blog %}

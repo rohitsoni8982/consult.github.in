@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block page %}
+<div class="container-fluid bg-dark p-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4 text-white">Login</h1>
+            <a href="">Home</a>
+            <i class="far fa-square text-primary px-2"></i>
+            <a href="">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock page %}
+{% block Contact %}
+<div class="container-fluid bg-secondary px-0">
+    <div class="row g-0">
+        <center>
+            <h1 class="display-5 mb-4">Login Here!!</h1>
+            <font style="color: green;">{{output}}</font>
+            <div class="col-6">
+            <form method="post" action="/login/">
+                {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" name="email"  placeholder="enter your email" value="{{cunm}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">password</label>
+                            <input type="password" class="form-control" name="password" placeholder="enter your password" value="{{cpass}}">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input type="checkbox" name="chk" value="remember">
+                            remember
+                        </div>
+                        <br>
+                        <div class="col-lg-4"> 
+                        <button class="btn btn-success " type="submit">Login</button>
+                        </div>
+                    </form>
+            </div>
+      </div>
+    </div>
+</div><br>
+{% endblock Contact %}
+{% block carousel %}
+{% endblock carousel %}
+{% block about %}
+{% endblock about %}
+{% block service %}
+{% endblock service %}
+{% block features %}
+{% endblock features %}
+{% block quote %}
+{% endblock quote %}
+{% block team %}
+{% endblock team %}
+{% block testimonial %}
+{% endblock testimonial %}
+{% block blog %}
+{% endblock blog %}
